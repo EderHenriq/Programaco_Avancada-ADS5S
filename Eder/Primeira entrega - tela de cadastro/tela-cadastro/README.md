@@ -1,59 +1,27 @@
-# TelaCadastro
+# Projeto: Tela de Cadastro e Exibição (Trabalho Bimestral)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Este projeto foi desenvolvido como parte das atividades bimestrais da disciplina de Desenvolvimento Web, utilizando o framework **Angular 21**. O objetivo principal é demonstrar a manipulação de formulários, Data Binding e a renderização dinâmica de listas.
 
-## Development server
+## 📋 Sobre o Trabalho
+A aplicação consiste em uma Single Page Application (SPA) que permite:
+1. **Captura de Dados:** Através de um formulário estruturado.
+2. **Armazenamento em Memória:** Os dados são salvos em um array/lista no componente.
+3. **Exibição Dinâmica:** Uma seção que lista todos os registros cadastrados em tempo real (utilizando a diretiva `*ngFor` ou `@for`).
 
-To start a local development server, run:
+## 🛠️ Tecnologias Utilizadas
+* **Angular CLI:** v21.1.4
+* **TypeScript:** Lógica de negócio e tipagem dos dados.
+* **HTML5/CSS3:** Estrutura e estilização da interface.
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Como Executar o Projeto
 
-## Code scaffolding
+### Pré-requisitos
+Certifique-se de ter o [Node.js](https://nodejs.org/) instalado em sua máquina.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Instalação
+1. Clone ou baixe este repositório.
+2. No terminal, acesse a pasta do projeto e instale as dependências:
+   ```bash
+   npm install
