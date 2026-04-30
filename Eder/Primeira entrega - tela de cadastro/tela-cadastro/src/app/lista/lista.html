@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h3>Usuários Cadastrados</h3>
+      <br>
+
+      @if (cadastrosSalvos.length > 0) {
+        <div>
+          <ul class="list-group">
+            @for (cadastro of cadastrosSalvos; track $index) {
+              <li class="list-group-item">
+                <p class="mb-1"><strong>Nome:</strong> {{ cadastro.nome }}</p>
+                <p class="mb-1"><strong>E-mail:</strong> {{ cadastro.email }}</p>
+                <p class="mb-1"><strong>Telefones:</strong></p>
+                <ul class="mb-0">
+                  @for (tel of cadastro.telefones; track $index) {
+                    <li>{{ tel.numero }} ({{ tel.tipo }})</li>
+                  }
+                </ul>
+              </li>
+            }
+          </ul>
+        </div>
+      } @else {
+        <div class="alert alert-info">
+          Nenhum usuário cadastrado ainda.
+        </div>
+      }
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'; // Recompile
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { UsuarioService } from '../services/usuario';
 
 @Component({
   selector: 'app-cadastro',
@@ -10,9 +11,11 @@ import { CommonModule } from '@angular/common';
 })
 export class Cadastro implements OnInit {
   meuFormulario!: FormGroup;
-  cadastrosSalvos: any[] = [];
 
-  constructor(private construtorDeFormulario: FormBuilder) { }
+  constructor(
+    private construtorDeFormulario: FormBuilder,
+    private usuarioService: UsuarioService
+  ) { }
 
   ngOnInit(): void {
     this.iniciarFormulario();
@@ -20,9 +23,9 @@ export class Cadastro implements OnInit {
 
   iniciarFormulario(): void {
     this.meuFormulario = this.construtorDeFormulario.group({
-      nome: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      senha: ['', [Validators.required, Validators.minLength(6)]],
+      nome: [''],
+      email: [''],
+      senha: [''],
       telefones: this.construtorDeFormulario.array([])
     });
 
@@ -34,8 +37,8 @@ export class Cadastro implements OnInit {
   }
   criarNovoTelefone(): FormGroup {
     return this.construtorDeFormulario.group({
-      numero: ['', Validators.required],
-      tipo: ['Celular', Validators.required]
+      numero: [''],
+      tipo: ['Celular']
     });
   }
 
@@ -51,13 +54,8 @@ export class Cadastro implements OnInit {
   }
 
   enviarCadastro(): void {
-    if (this.meuFormulario.valid) {
-      this.cadastrosSalvos.push(this.meuFormulario.value);
-      alert('Cadastro realizado com sucesso!');
-      this.iniciarFormulario();
-    } else {
-      this.meuFormulario.markAllAsTouched();
-      alert('Existem campos inválidos ou vazios. Verifique o formulário.');
-    }
+    this.usuarioService.adicionarUsuario(this.meuFormulario.value);
+    alert('Cadastro realizado com sucesso!');
+    this.iniciarFormulario();
   }
 }
